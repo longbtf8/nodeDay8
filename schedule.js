@@ -9,7 +9,7 @@ CronJob.from({
 }).start();
 
 //  auto delete revoked tokens
-// CronJob.from({
-//   cronTime: "*/5 * * * * *",
-//   onTick: cleanupExpiredTokens,
-// }).start();
+CronJob.from({
+  cronTime: " 0 1 * * *",
+  onTick: cleanupExpiredTokens,
+}).start();
