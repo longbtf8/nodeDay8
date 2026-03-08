@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "node --watch ./server",
+    "dev": "concurrently 'npm:dev:server' 'npm:queue' 'npm:schedule' ",
+    "dev:server": "node --watch ./server",
     "start": "node server.js",
     "queue": "node --watch queue.js",
     "schedule": "node  --watch schedule.js"
@@ -19,5 +20,8 @@
   },
   "_moduleAliases": {
     "@": "./src"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
   }
 }
