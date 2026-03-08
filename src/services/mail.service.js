@@ -55,5 +55,27 @@ class MailService {
       subject: "Thông báo đổi mật khẩu ",
     });
   }
+
+  // backup DB
+  async sendBackupSuccessEmail({ fileName, fileLink, time }) {
+    const { fromAddress, fromName } = mailConfig;
+    await this.send({
+      from: `"${fromName}" <${fromAddress}>`,
+      to: process.env.ADMIN_EMAIL,
+      template: "admin/backupSuccess",
+      templateData: { fileName, fileLink, time },
+      subject: `✅ Backup DB thành công - ${time}`,
+    });
+  }
+  async sendBackupFailedEmail({ error, time }) {
+    const { fromAddress, fromName } = mailConfig;
+    await this.send({
+      from: `"${fromName}" <${fromAddress}>`,
+      to: process.env.ADMIN_EMAIL,
+      template: "admin/backupFailed",
+      templateData: { error, time },
+      subject: `❌ Backup DB thất bại - ${time}`,
+    });
+  }
 }
 module.exports = new MailService();

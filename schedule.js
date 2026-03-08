@@ -4,7 +4,7 @@ const backupDB = require("./src/schedulers/backupDB");
 const cleanupExpiredTokens = require("./src/schedulers/cleanupExpiredTokens");
 
 CronJob.from({
-  cronTime: "0 2 * * *",
+  cronTime: " 0 3 * * *",
   onTick: backupDB,
 }).start();
 

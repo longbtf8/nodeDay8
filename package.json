@@ -13,6 +13,7 @@
     "dotenv": "^17.2.3",
     "ejs": "^4.0.1",
     "express": "^5.2.1",
+    "googleapis": "^171.4.0",
     "jsonwebtoken": "^9.0.3",
     "module-alias": "^2.3.3",
     "mysql2": "^3.16.3",
