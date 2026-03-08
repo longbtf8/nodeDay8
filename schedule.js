@@ -1,7 +1,7 @@
 const { CronJob } = require("cron");
 require("dotenv").config();
-const backupDB = require("./src/schedulers/backupDB");
-const cleanupExpiredTokens = require("./src/schedulers/cleanupExpiredTokens");
+const backupDB = require("./src/schedules/backupDB");
+const cleanupExpiredTokens = require("./src/schedules/cleanupExpiredTokens");
 
 CronJob.from({
   cronTime: " 0 3 * * *",
