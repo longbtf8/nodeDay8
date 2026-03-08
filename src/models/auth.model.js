@@ -14,7 +14,7 @@ const registerUser = async (email, password) => {
 };
 const logout = async (accessToken, tokenPayload) => {
   const query = `insert into revoked_tokens (token,expires_at) values (?,?)`;
-  await db.query(query, [accessToken, new Date(tokenPayload.exp)]);
+  await db.query(query, [accessToken, new Date(tokenPayload.exp * 1000)]);
 };
 const insertRefreshToken = async (id, refreshToken, expires_at, userAgent) => {
   await db.query(
